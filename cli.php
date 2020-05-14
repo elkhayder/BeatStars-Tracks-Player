@@ -45,6 +45,8 @@ fwrite(STDOUT, "
                             __/ |                 
                            |___/   
 "); 
+sleep(1);
+fwrite(STDOUT, chr(27).chr(91).'H'.chr(27).chr(91).'J');   //Clear Output by typing ^[H^[J 
 fwrite(STDOUT, "Enter Track ID: "); // Request For track ID
 $track_id = (int) intval(iread(10)); // Read Track ID
 $track_info = TrackInfo($track_id); // Get Track Info
