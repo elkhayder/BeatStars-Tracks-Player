@@ -100,8 +100,9 @@ while($while) {
     ]));
     curl_setopt($request, CURLOPT_HTTPHEADER, [
         "Content-Type:application/json",
-        "REMOTE_ADDR: $random_ip",
-        "HTTP_X_FORWARDED_FOR: $random_ip"
+        "X-ProxyUser-Ip: $random_ip",
+        "X-Forwarded-For: $random_ip",
+        "app: WEB_MARKETPLACE"
     ]);
     curl_setopt($request, CURLOPT_RETURNTRANSFER, true);
     $response = json_decode(curl_exec($request));
